@@ -78,7 +78,7 @@ const messageBox = document.querySelector(".message");
 
 // Countdown Timer
 const countdownElement = document.getElementById("countdown");
-const birthdayDate = new Date("2026-10-24T00:00:00"); // Ganti dengan tanggal ulang tahun
+const birthdayDate = new Date("2026-10-24T20:00:00"); // Ganti dengan tanggal ulang tahun
 const countdownDays = document.getElementById("days");
 const countdownHours = document.getElementById("hours");
 const countdownMinutes = document.getElementById("minutes");
