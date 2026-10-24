@@ -1,0 +1,397 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700&display=swap');
+
+/* General Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffd1dc, #ffaebc, #e8a5c8, #d883b7);
+    background-size: 300% 300%;
+    animation: gradient 12s ease infinite;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Hiasan Bendera Pesta (Bunting Banner) di Atas */
+.bunting-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.flag {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 45px solid #ff4081;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+    animation: swing 3s ease-in-out infinite alternate;
+    transform-origin: top center;
+}
+
+.flag-1 { border-top-color: #ff5252; animation-delay: 0s; }
+.flag-2 { border-top-color: #ff4081; animation-delay: 0.2s; }
+.flag-3 { border-top-color: #e040fb; animation-delay: 0.4s; }
+.flag-4 { border-top-color: #7c4dff; animation-delay: 0.6s; }
+.flag-5 { border-top-color: #ffab40; animation-delay: 0.8s; }
+.flag-6 { border-top-color: #ff4081; animation-delay: 1s; }
+.flag-7 { border-top-color: #ff5252; animation-delay: 1.2s; }
+
+@keyframes swing {
+    0% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+
+/* Hiasan Bintang/Kilau di Atas */
+.sparkles {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    z-index: 15;
+    font-size: 1.5rem;
+    pointer-events: none;
+}
+
+.sparkle {
+    animation: pulseSparkle 2s infinite ease-in-out;
+}
+
+.s1 { animation-delay: 0s; }
+.s2 { animation-delay: 0.4s; }
+.s3 { animation-delay: 0.8s; }
+.s4 { animation-delay: 1.2s; }
+.s5 { animation-delay: 1.6s; }
+
+@keyframes pulseSparkle {
+    0%, 100% { transform: scale(0.8); opacity: 0.5; }
+    50% { transform: scale(1.3); opacity: 1; }
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 60px 20px 100px 20px;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+}
+
+/* Header Atas */
+.top-header {
+    margin-bottom: 20px;
+}
+
+.main-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.8rem;
+    color: #ffffff;
+    text-shadow: 3px 3px 8px rgba(186, 45, 107, 0.6);
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* Cake Styles (Warna & Kontras Baru) */
+.cake {
+    position: relative;
+    width: 180px;
+    height: 160px;
+    margin: 20px auto 30px auto;
+    z-index: 10;
+}
+
+.plate {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 18px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.layer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px 10px 6px 6px;
+    box-shadow: inset 0 -4px 0 rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Warna Kue Kontras Berkonsep Cokelat-Krem-Strawberry */
+.layer-bottom {
+    bottom: 5px;
+    width: 170px;
+    height: 45px;
+    background: #6d4c41; /* Cokelat hangat */
+}
+
+.layer-middle {
+    bottom: 50px;
+    width: 135px;
+    height: 40px;
+    background: #fff8e1; /* Krem / Vanilla */
+}
+
+.layer-top {
+    bottom: 90px;
+    width: 100px;
+    height: 35px;
+    background: #d81b60; /* Pink Strawberry Tua */
+}
+
+/* Candles & Flame */
+.candles {
+    position: absolute;
+    bottom: 125px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    z-index: 12;
+}
+
+.candle {
+    width: 10px;
+    height: 32px;
+    background: linear-gradient(to bottom, #ffffff, #ffe0b2);
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.flame {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 14px;
+    background: radial-gradient(circle, #ffee58 30%, #ff6d00 80%);
+    border-radius: 50% 50% 35% 35%;
+    box-shadow: 0 0 10px #ffab00;
+    animation: flicker 1.2s infinite ease-in-out;
+}
+
+@keyframes flicker {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.15) rotate(2deg); }
+}
+
+/* Countdown Card */
+.countdown {
+    background: rgba(255, 255, 255, 0.92);
+    padding: 15px 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    margin-bottom: 25px;
+    backdrop-filter: blur(5px);
+    border: 2px solid #fff;
+    max-width: 90%;
+}
+
+.countdown h2 {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    color: #ad1457;
+}
+
+.countdown-timer {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #d81b60;
+}
+
+/* Message Box */
+.message {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    max-width: 500px;
+    width: 90%;
+    transition: transform 0.3s ease;
+    border: 2px solid #ffffff;
+}
+
+.message:hover {
+    transform: translateY(-5px);
+}
+
+.message h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #c2185b;
+    text-shadow: none;
+}
+
+.message p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Lily flower garden */
+.lilies {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.lily {
+    position: absolute;
+    bottom: -15px;
+    width: 100px;
+    height: 300px;
+    transform-origin: bottom center;
+    animation: lilySway 5s ease-in-out infinite;
+}
+
+.stem {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 5px;
+    height: 230px;
+    background: linear-gradient(90deg, #245c32, #62a85d, #347744);
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.leaves,
+.leaves::before,
+.leaves::after {
+    position: absolute;
+    width: 55px;
+    height: 20px;
+    background: linear-gradient(180deg, #76bd69, #286b3b);
+    border-radius: 100% 0 100% 0;
+}
+
+.leaves {
+    left: 50%;
+    bottom: 75px;
+    transform: rotate(-20deg);
+}
+
+.leaves::before {
+    content: "";
+    left: -25px;
+    top: -45px;
+    transform: rotate(-25deg);
+}
+
+.leaves::after {
+    content: "";
+    left: 0;
+    top: -90px;
+    transform: rotate(55deg);
+}
+
+.flower {
+    position: absolute;
+    left: 50%;
+    top: 5px;
+    width: 100px;
+    height: 100px;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 3px 5px rgba(80, 35, 65, 0.15));
+}
+
+.flower i {
+    position: absolute;
+    left: 35px;
+    top: 2px;
+    width: 30px;
+    height: 52px;
+    background: linear-gradient(90deg, #fff8fc, #ffffff 50%, #f4dce9);
+    border-radius: 90% 90% 45% 45%;
+    transform-origin: 50% 48px;
+    clip-path: polygon(50% 0%, 100% 35%, 85% 78%, 50% 100%, 15% 78%, 0% 35%);
+}
+
+.flower i:nth-child(1) { transform: rotate(0deg); }
+.flower i:nth-child(2) { transform: rotate(60deg); }
+.flower i:nth-child(3) { transform: rotate(120deg); }
+.flower i:nth-child(4) { transform: rotate(180deg); }
+.flower i:nth-child(5) { transform: rotate(240deg); }
+.flower i:nth-child(6) { transform: rotate(300deg); }
+
+.lily-1  { left: 1%;  transform: scale(1.05) rotate(-7deg); animation-delay: 0s; }
+.lily-2  { left: 10%; transform: scale(.75) rotate(8deg); bottom: -45px; animation-delay: 1s; }
+.lily-3  { left: 19%; transform: scale(.9) rotate(-10deg); animation-delay: 2s; }
+.lily-4  { left: 28%; transform: scale(.65) rotate(12deg); bottom: -55px; animation-delay: .5s; }
+.lily-5  { left: 37%; transform: scale(.85) rotate(-5deg); animation-delay: 1.5s; }
+.lily-6  { left: 46%; transform: scale(.7) rotate(10deg); bottom: -40px; animation-delay: 2.5s; }
+.lily-7  { left: 55%; transform: scale(.9) rotate(-8deg); animation-delay: .7s; }
+.lily-8  { left: 64%; transform: scale(.7) rotate(9deg); bottom: -50px; animation-delay: 1.8s; }
+.lily-9  { left: 73%; transform: scale(1) rotate(-10deg); animation-delay: .3s; }
+.lily-10 { left: 82%; transform: scale(.8) rotate(8deg); bottom: -35px; animation-delay: 2.2s; }
+.lily-11 { left: 89%; transform: scale(.95) rotate(-6deg); animation-delay: 1.2s; }
+.lily-12 { left: 95%; transform: scale(.7) rotate(10deg); bottom: -45px; animation-delay: 2.7s; }
+
+@keyframes lilySway {
+    0%, 100% { margin-left: 0; }
+    50% { margin-left: 8px; }
+}
+
+/* Confetti Effect */
+.confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: transparent;
+    overflow: hidden;
+    z-index: 999;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .main-title { font-size: 2.2rem; }
+    .flag { border-left-width: 14px; border-right-width: 14px; border-top-width: 35px; }
+    .lily-2, .lily-4, .lily-6, .lily-8, .lily-10, .lily-12 { display: none; }
+    .stem { height: 170px; }
+    .flower { transform: translateX(-50%) scale(.8); transform-origin: top center; }
+}
+
+@media (max-width: 480px) {
+    .container { padding-top: 50px; }
+    .main-title { font-size: 1.8rem; }
+    .message h1 { font-size: 1.5rem; }
+    .message p { font-size: 0.95rem; }
+    .countdown-timer { font-size: 1.1rem; }
+}
+
